@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Text,
   View,
-  ListView
+  ListView,
+  ActivityIndicatorIOS
 } from 'react-native';
 
 
@@ -16,21 +17,24 @@ class ServicesList extends Component {
   }
 
   render() {
-    console.log("props", this.props)
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     let dataSource = ds.cloneWithRows(this.props.services)
+    const { services, isFetchingServices } = this.props;
     return (
+      <View>
+      { isFetchingServices && <ActivityIndicatorIOS/> }
       <ListView
         dataSource={dataSource}
         renderRow={(rowData) => (
           <View style={styles.row}>
             <Text>{rowData.name}</Text>
           </View>
-          
+
         )}
       >
-      
       </ListView>
+
+      </View>
     );
   }
 }
