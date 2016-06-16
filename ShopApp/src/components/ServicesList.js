@@ -6,7 +6,8 @@ import {
   Text,
   View,
   ListView,
-  ActivityIndicatorIOS
+  ActivityIndicatorIOS,
+  TouchableHighlight
 } from 'react-native';
 
 
@@ -16,18 +17,25 @@ class ServicesList extends Component {
     this.props.loadShopServices();
   }
 
+  onPressButton(){
+    this.props.navigator.push({detail:true})
+  }
+
   render() {
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     let dataSource = ds.cloneWithRows(this.props.services)
     const { services, isFetchingServices } = this.props;
     return (
-      <View>
+      <View style={styles.container}>
       { isFetchingServices && <ActivityIndicatorIOS/> }
       <ListView
         dataSource={dataSource}
+        enableEmptySections={true}
         renderRow={(rowData) => (
           <View style={styles.row}>
+          <TouchableHighlight onPress={this.onPressButton.bind(this)}>
             <Text>{rowData.name}</Text>
+          </TouchableHighlight>
           </View>
 
         )}
@@ -40,6 +48,12 @@ class ServicesList extends Component {
 }
 
 var styles = StyleSheet.create({
+
+  container: {
+    flex: 1,
+    backgroundColor: 'teal',
+  },
+  
   row: {
     flexDirection: 'row',
     justifyContent: 'center',
