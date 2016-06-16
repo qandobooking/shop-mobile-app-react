@@ -16,7 +16,7 @@ import {
 class ServiceDetail extends Component {
 
   componentWillMount() {
-    //this.props.loadService(this.props.serviceId);
+    this.props.loadService(this.props.serviceId, true);
   }
 
   render() {
