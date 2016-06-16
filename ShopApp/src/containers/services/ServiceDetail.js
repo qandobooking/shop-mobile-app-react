@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadService } from '../../actions/services';
 import Calendar from 'react-native-calendar';
+import moment from 'moment';
 
 import {
   StyleSheet,
@@ -17,6 +18,7 @@ class ServiceDetail extends Component {
 
   componentWillMount() {
     this.props.loadService(this.props.serviceId, true);
+    //load availability for this.props.currentStartDate
   }
 
   render() {
@@ -28,6 +30,7 @@ class ServiceDetail extends Component {
         <Calendar 
           style={styles.calendar} 
           showControls={true} scrollEnabled={true}
+          startDate={this.props.currentStartDate}
           eventDates={['2016-06-20', '2016-06-21']}   >
         </Calendar>
       </View>
@@ -66,12 +69,15 @@ var styles = StyleSheet.create({
 
 function mapStateToProps(state, ownProps) {
   let service = state.entities.services[ownProps.serviceId];
+  let currentStartDate = state.currentStartDate || moment().format() 
   return {
     service,
+    currentStartDate
   };
 }
 
 
 export default connect(mapStateToProps, {
   loadService,
+  //setBookingCalendarDate,
 })(ServiceDetail);
