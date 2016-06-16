@@ -42,7 +42,7 @@ export function loadShops() {
 function fetchShop(shopId) {
   return {
     entitySchema: Schemas.SHOP,
-    ...isPageError(),
+    //...isPageError(),
     [CALL_API]: {
       endpoint: `/shops/${shopId}`,
       types: [

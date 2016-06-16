@@ -17,8 +17,8 @@ class ServicesList extends Component {
     this.props.loadShopServices();
   }
 
-  onPressButton(){
-    this.props.navigator.push({detail:true})
+  onPressButton(serviceId){
+    this.props.navigator.push({detail:true, serviceId:serviceId, title:'Test' })
   }
 
   render() {
@@ -33,9 +33,10 @@ class ServicesList extends Component {
         enableEmptySections={true}
         renderRow={(rowData) => (
           <View style={styles.row}>
-          <TouchableHighlight onPress={this.onPressButton.bind(this)}>
-            <Text>{rowData.name}</Text>
-          </TouchableHighlight>
+            <TouchableHighlight style={styles.title} onPress={()=>this.onPressButton(rowData.id)}>
+              <Text>{rowData.name} {rowData.id}</Text>
+            </TouchableHighlight>
+            <Text style={styles.description}>{rowData.description}</Text>
           </View>
 
         )}
@@ -52,13 +53,21 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'teal',
+    paddingTop:50,
   },
   
   row: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
     padding: 10,
-    backgroundColor: '#F6F6F6',
+    backgroundColor: '#F6F6F6'
+  },
+  title : {
+    flex : 1
+  },
+  description : {
+    flex:1,
+    backgroundColor: '#F6F6F6'
   },
   thumb: {
     width: 64,

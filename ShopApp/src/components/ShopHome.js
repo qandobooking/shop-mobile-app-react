@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  ActivityIndicatorIOS,
 } from 'react-native';
 
 
-export default class ShopHome extends Component {
+class ShopHome extends Component {
   render() {
+    if(!this.props.shop){
+      return <View style={styles.container}><ActivityIndicatorIOS/></View>
+    }
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to ShopHome
+          Welcome to {this.props.shop.name}
         </Text>
       </View>
     );
@@ -27,3 +32,15 @@ const styles = StyleSheet.create({
   },
   
 });
+
+function mapStateToProps(state, ownProps) {
+  
+  let shop = state.entities.shops[state.shopId];
+  
+  return {
+    shop,
+  };
+}
+
+
+export default connect(mapStateToProps)(ShopHome);

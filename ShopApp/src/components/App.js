@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Tabs from "./Tabs";
+import { loadShop } from '../actions/shops'
 import {
   View,
   StyleSheet,
@@ -9,10 +11,14 @@ import {
 } from 'react-native';
 
 
-export default class App extends Component {
+class App extends Component {
   constructor(props){
     super(props);
-    
+  }
+
+
+  componentWillMount() {
+    this.props.loadShop()        
   }
 
   render() {
@@ -30,17 +36,7 @@ export default class App extends Component {
 
   renderScene (route, navigator){
 
-      if(route.detail){
-        return (
-          <View style={styles.container}>
-            <View style={styles.button} >
-            <TouchableHighlight onPress={() => navigator.pop()} >
-              <Text>Back</Text>
-            </TouchableHighlight>
-            </View>
-          </View>
-        )
-      }
+      
 
       return (
 
@@ -48,6 +44,8 @@ export default class App extends Component {
       )
   }
 }
+
+
 
 var styles = StyleSheet.create({
 
@@ -62,3 +60,8 @@ var styles = StyleSheet.create({
   }
 });
 
+
+
+export default connect(null, {
+  loadShop,
+})(App);

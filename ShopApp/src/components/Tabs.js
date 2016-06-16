@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 
 import ShopHome from './ShopHome';
-import ServicesList from './ServicesList';
+import Services from './Services';
 import UserProfile from './UserProfile';
 
 export default class Tabs extends Component {
@@ -39,7 +39,7 @@ export default class Tabs extends Component {
               notifCount: this.state.notifCount + 1,
             });
           }}>
-          <ServicesList navigator={this.props.navigator}/>
+          <Services navigator={this.props.navigator}/>
         </TabBarIOS.Item>
         <TabBarIOS.Item
           renderAsOriginal
