@@ -7,9 +7,7 @@ function mergeEntities(state, entities) {
 }
 
 const initialState = {
-  shops: {},
   services: {},
-  bookings: {},
 };
 
 export default function entities(state = initialState, action) {

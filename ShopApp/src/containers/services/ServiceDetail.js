@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadShopService } from '../actions/shops'
+import { loadService } from '../../actions/services';
 import Calendar from 'react-native-calendar';
 
 import {
@@ -16,11 +16,7 @@ import {
 class ServiceDetail extends Component {
 
   componentWillMount() {
-    //this.props.loadShopService(this.props.serviceId);
-  }
-
-  onPressButton(){
-    this.props.navigator.push({detail:true})
+    //this.props.loadService(this.props.serviceId);
   }
 
   render() {
@@ -69,9 +65,7 @@ var styles = StyleSheet.create({
 
 
 function mapStateToProps(state, ownProps) {
-  
-  let service = state.entities.services[ownProps.serviceId]
-  
+  let service = state.entities.services[ownProps.serviceId];
   return {
     service,
   };
@@ -79,5 +73,5 @@ function mapStateToProps(state, ownProps) {
 
 
 export default connect(mapStateToProps, {
-  loadShopService,
+  loadService,
 })(ServiceDetail);

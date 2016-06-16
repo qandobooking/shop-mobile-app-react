@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadShopServices } from '../actions/shops'
+import { loadServices } from '../../actions/services';
 import {
   StyleSheet,
   Text,
@@ -14,20 +14,20 @@ import {
 class ServicesList extends Component {
 
   componentWillMount() {
-    this.props.loadShopServices();
+    this.props.loadServices();
   }
 
   onPressButton(serviceId){
-    this.props.navigator.push({detail:true, serviceId:serviceId, title:'Test' })
+    this.props.servicesNavigator.push({detail:true, serviceId:serviceId, title:'Test' })
   }
 
   render() {
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     let dataSource = ds.cloneWithRows(this.props.services)
-    const { services, isFetchingServices } = this.props;
+    const { services, isFetching } = this.props;
     return (
       <View style={styles.container}>
-      { isFetchingServices && <ActivityIndicatorIOS/> }
+      { isFetching && <ActivityIndicatorIOS/> }
       <ListView
         dataSource={dataSource}
         enableEmptySections={true}
@@ -55,7 +55,7 @@ var styles = StyleSheet.create({
     backgroundColor: 'teal',
     paddingTop:50,
   },
-  
+
   row: {
     flexDirection: 'column',
     justifyContent: 'center',
@@ -80,24 +80,16 @@ var styles = StyleSheet.create({
 
 
 function mapStateToProps(state) {
-  const shopId = state.shopId;
-  const shopServicesRes = state.shopServices[shopId];
-
-  let isFetchingServices = null;
-  let services = [];
-
-  if (shopServicesRes) {
-    isFetchingServices = shopServicesRes.isFetching;
-    services = shopServicesRes.ids.map(id => state.entities.services[id]);
-  }
+  const isFetching = state.services.isFetching;
+  const services = state.services.ids.map(id => state.entities.services[id]);
 
   return {
-    isFetchingServices,
+    isFetching,
     services,
   };
 }
 
 
 export default connect(mapStateToProps, {
-  loadShopServices,
+  loadServices,
 })(ServicesList);

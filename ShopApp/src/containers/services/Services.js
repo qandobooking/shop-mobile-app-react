@@ -10,55 +10,47 @@ import {
   TouchableHighlight,
   TouchableOpacity
 } from 'react-native';
-
 import ServicesList from './ServicesList';
 import ServiceDetail from './ServiceDetail';
 
 
 export default class Services extends Component {
+  constructor(props){
+    super(props);
 
-  componentWillMount() {
-    
+    this.renderScene = this.renderScene.bind(this);
   }
 
- 
   render() {
-
     return (
       <Navigator
         style={styles.container}
-        initialRoute={{title:'Servizi'}}
-        renderScene={this.renderScene.bind(this)}
+        initialRoute={{title: 'Servizi'}}
+        renderScene={this.renderScene}
         navigationBar={
-          <Navigator.NavigationBar 
+          <Navigator.NavigationBar
             routeMapper={NavigationBarRouteMapper}
             style={styles.navBar}
           />
         }
-          
-      >
-      </Navigator>
-
-    )
+      />
+    );
   }
 
+  renderScene (route, navigator) {
+    //const mainNavigator = this.props.navigator;
 
-
-  renderScene (route, navigator){
-
-      if(route.detail){
-        return (
-          <ServiceDetail serviceId={route.serviceId} navigator={navigator}/>
-        )
-      }
-
+    if (route.detail) {
       return (
-        <ServicesList navigator={navigator}/>
-      )
+        <ServiceDetail
+          serviceId={route.serviceId}
+          servicesNavigator={navigator}
+        />
+      );
+    }
+
+    return <ServicesList servicesNavigator={navigator} />;
   }
-
-
-
 }
 
 var styles = StyleSheet.create({
@@ -67,7 +59,7 @@ var styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'teal'
   },
-  
+
   row: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -139,5 +131,3 @@ var NavigationBarRouteMapper = {
   },
 
 };
-
-
