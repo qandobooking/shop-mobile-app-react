@@ -10,8 +10,10 @@ import {
   TouchableHighlight,
   TouchableOpacity
 } from 'react-native';
+
 import ServicesList from './ServicesList';
 import ServiceDetail from './ServiceDetail';
+import ServiceBookingDay from './ServiceBookingDay';
 
 
 export default class Services extends Component {
@@ -45,9 +47,24 @@ export default class Services extends Component {
         <ServiceDetail
           serviceId={route.serviceId}
           servicesNavigator={navigator}
-        />
+        >
+        </ServiceDetail>
       );
     }
+
+    if (route.bookingDay) {
+      console.info(route)
+      return (
+        <ServiceBookingDay
+          serviceId={route.serviceId}
+          servicesNavigator={navigator}
+          bookingDate={route.bookingDate}
+        >
+        </ServiceBookingDay>
+      );
+    }
+
+
 
     return <ServicesList servicesNavigator={navigator} />;
   }
