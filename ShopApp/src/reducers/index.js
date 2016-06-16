@@ -4,6 +4,7 @@ import tabs from './tabs';
 import entities from './entities';
 import shop from './shop';
 import services from './services';
+import booking from './booking';
 
 const rootReducer = combineReducers({
   app,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   entities,
   shop,
   services,
+  booking,
 });
 
 export default rootReducer;
