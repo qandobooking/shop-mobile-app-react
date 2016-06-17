@@ -6,7 +6,7 @@ import { setBookingCalendarDate, setBookingService,
 import Calendar from 'react-native-calendar';
 import moment from 'moment';
 import {getBookingAvailblesCalendarDates} from  '../../selectors/calendar'
-
+import { includes } from 'lodash';
 
 import {
   StyleSheet,
@@ -29,9 +29,13 @@ class ServiceDetail extends Component {
   }
 
   viewBookingDate(bookingDate) {
-    let title = moment(bookingDate).format('YYYY-MM-DD')
+    let dateAsString = moment(bookingDate).format('YYYY-MM-DD');
+    if (!includes(this.props.availableDates, dateAsString)){
+      return;
+    }
+    
     this.props.servicesNavigator.push({
-      bookingDay:true, bookingDate:bookingDate, title:title})
+      bookingDay:true, bookingDate:dateAsString, title:dateAsString})
   }
 
   updateDate(newDate) {

@@ -11,5 +11,5 @@ const getAvailablesBookingRanges = (state) => state.booking.ranges.items;
 // Map bookings range to fullcalendar valid events
 export const getBookingAvailblesCalendarDates = createSelector(
   [ getAvailablesBookingRanges ],
-  ranges => mapDatesToCalendarEvents(keys(ranges))
+  ranges => keys(ranges)
 );
