@@ -1,5 +1,6 @@
 import { CALL_API } from '../middleware/api';
 import { jsonPostConfig, authTokenConfig } from './utils';
+import { AsyncStorage } from 'react-native';
 import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -45,48 +46,20 @@ function meRequest() {
 
 export function login({email, password}) {
   return (dispatch, getState) => {
-
     return dispatch(loginRequest({email, password}))
-    .then(resp => {
-      if(resp.error){
-        return resp;
+    .then(response => {
+      if (response.error) {
+        return response;
       }
       return dispatch(meRequest())
-      .then(resp => {
-        if(resp.error){
-          return resp;
+      .then(response => {
+        if (response.error) {
+          return response;
         }
-        let token = getState().auth.token;
-        console.info("new token", token)
+        const token = getState().auth.token;
+        AsyncStorage.setItem('user_token', token);
         return token;
       });
-    })
-
-
-
-    const giveMeToken = () => Promise.resolve(getState().auth.token);
-    return dispatch(loginRequest({email, password}))
-    .then(giveMeToken)
-    .then((token) => {
-      if (token) {
-        dispatch(meRequest())
-        .then(giveMeToken)
-        // if login is ok but me failed in some part of application
-        // a logout will be dispatched and token will be erased from the state
-        // then this implementation will have (more) sense
-        .then((token) => {
-          if (token) {
-            //TODO: Re-implement with react native storage...
-            //localStorage.setItem('user_token', token);
-
-            // TODO: Maybe Re-implement with push state ore custom callback...
-            // Redirect after login if set
-            //const redirect = getState().auth.redirect;
-            //redirect && dispatch(push(redirect));
-            return token;
-          }
-        });
-      }
     });
   };
 }
@@ -94,8 +67,7 @@ export function login({email, password}) {
 export function logout() {
   return (dispatch, getState) => {
     dispatch({ type: USER_LOGOUT });
-    // TODO: Re-implement with react native storage
-    //localStorage.removeItem('user_token');
+    AsyncStorage.removeItem('user_token');
 
     // TODO: Maybe Re-implement with push state
     //dispatch(replace('/'));

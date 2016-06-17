@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux'
-import configureStore from './store/configureStore'
+import configureStore from './store/configureStore';
+import bootstrapStore from './store/bootstrapStore';
 import App from './containers/App'
 
 const store = configureStore({
@@ -9,6 +10,8 @@ const store = configureStore({
     shopId: 1 // Customer App Shop ID
   }
 });
+
+bootstrapStore(store);
 
 class Root extends Component {
   render () {
