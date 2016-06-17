@@ -45,8 +45,27 @@ function meRequest() {
 
 export function login({email, password}) {
   return (dispatch, getState) => {
+
+    return dispatch(loginRequest({email, password}))
+    .then(resp => {
+      if(resp.error){
+        return resp;
+      }
+      return dispatch(meRequest())
+      .then(resp => {
+        if(resp.error){
+          return resp;
+        }
+        let token = getState().auth.token;
+        console.info("new token", token)
+        return token;
+      });
+    })
+
+
+
     const giveMeToken = () => Promise.resolve(getState().auth.token);
-    dispatch(loginRequest({email, password}))
+    return dispatch(loginRequest({email, password}))
     .then(giveMeToken)
     .then((token) => {
       if (token) {
@@ -64,6 +83,7 @@ export function login({email, password}) {
             // Redirect after login if set
             //const redirect = getState().auth.redirect;
             //redirect && dispatch(push(redirect));
+            return token;
           }
         });
       }
