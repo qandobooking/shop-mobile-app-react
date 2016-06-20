@@ -33,6 +33,6 @@ export default class App extends Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'teal',
+    backgroundColor: '#222',
   }
 });

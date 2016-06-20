@@ -6,15 +6,32 @@ import {
   Text,
   Image,
   View,
+  ScrollView,
   ListView,
   ActivityIndicatorIOS,
+  Animated,
 } from 'react-native';
 
 import Spinner from '../components/Spinner'
 
 class ShopHome extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      height : 200
+    }
+  }
   componentWillMount() {
     this.props.loadShop();
+  }
+
+
+  handleScroll(evt){
+    const offset = evt.nativeEvent.contentOffset.y;
+    let newHeight = offset >= 150 ? 50 : 200 - offset;
+    this.setState({height:newHeight})
+
   }
 
   render() {
@@ -31,16 +48,23 @@ class ShopHome extends Component {
     const { logoUrl, technologies } = shop.customData;
 
     return (
+      <ScrollView
+        style={styles.container}
+        scrollEventThrottle={20}
+        onScroll={(evt)=>{this.handleScroll(evt)}}>
       <View style={styles.container}>
         <View style={styles.shopTitleContainer}>
           <Text style={styles.shopTitleText}>{shop.name}</Text>
         </View>
-        <Image
-          style={styles.logo}
-          source={{uri: logoUrl}}
-        />
+        <View style={[styles.logoContainer, { height:this.state.height }]} ref="logoContainer">
+          <Image
+            style={styles.logo}
+            source={{uri: logoUrl}}
+          />
+        </View>
         {this.renderTechnologiesList()}
       </View>
+      </ScrollView>
     );
   }
 
@@ -104,19 +128,28 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#222'
   },
   shopTitleContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#000',
     padding: 10
   },
   shopTitleText: {
     fontSize: 22,
-    fontWeight: 'bold'
+    fontWeight: 'normal',
+    color: '#fff',
+  },
+  logoContainer : {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 200,
+    backgroundColor: '#000',
   },
   logo: {
     flex: 1,
+    width: 150,
     resizeMode: 'contain',
   },
   listContainer: {
@@ -141,9 +174,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 8,
     textAlign: 'left',
+    color: '#fff',
   },
   technologyDescription: {
     textAlign: 'left',
+    color: '#ddd',
   },
 });
 

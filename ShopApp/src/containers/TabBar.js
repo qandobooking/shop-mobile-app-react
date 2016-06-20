@@ -40,7 +40,7 @@ class TabBar extends Component {
         </Text>
         </TouchableHighlight>
 
-        
+
     </View>);
   }
 
@@ -82,10 +82,10 @@ TabBar.propTypes = {
 };
 
 TabBar.defaultProps = {
-  activeTextColor: 'navy',
-  inactiveTextColor: 'black',
-  underlineColor: 'navy',
-  backgroundColor: null,
+  activeTextColor: 'deepskyblue',
+  inactiveTextColor: '#fff',
+  underlineColor: 'deepskyblue',
+  backgroundColor: '#000',
   underlineHeight: 4,
 }
 
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    borderBottomColor: '#ccc',
+    borderBottomColor: '#222',
   },
 });
 
