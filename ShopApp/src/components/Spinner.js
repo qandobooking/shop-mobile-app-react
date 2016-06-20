@@ -15,7 +15,7 @@ var NativeSpinner = Platform.select({
   android: () => require('ProgressBarAndroid'),
 })();
 
-const Spinner = ({}) => {
+const Spinner = () => {
   if(Platform.OS === 'ios'){
     return(
       <NativeSpinner/>

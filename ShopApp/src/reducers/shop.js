@@ -1,7 +1,8 @@
 import {
   SHOP_REQUEST,
   SHOP_SUCCESS,
-  SHOP_FAILURE
+  SHOP_FAILURE,
+  SET_SHOP_DATA
 } from '../constants/ActionTypes';
 
 const initialState = {
@@ -23,6 +24,9 @@ export default function(state = initialState, action) {
 
     case SHOP_SUCCESS:
       return { ...state, isFetching: false, data };
+
+    case SET_SHOP_DATA:
+      return { ...state, data };
 
     default:
       return state;

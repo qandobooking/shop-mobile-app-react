@@ -57,7 +57,7 @@ export function login({email, password}) {
           return response;
         }
         const token = getState().auth.token;
-        AsyncStorage.setItem('user_token', token);
+        AsyncStorage.setItem('userToken', token);
         return token;
       });
     });
@@ -67,7 +67,7 @@ export function login({email, password}) {
 export function logout() {
   return (dispatch, getState) => {
     dispatch({ type: USER_LOGOUT });
-    AsyncStorage.removeItem('user_token');
+    AsyncStorage.removeItem('userToken');
 
     // TODO: Maybe Re-implement with push state
     //dispatch(replace('/'));
