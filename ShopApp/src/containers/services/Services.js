@@ -74,7 +74,7 @@ var styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: 'teal'
+    backgroundColor: '#000'
   },
 
   row: {

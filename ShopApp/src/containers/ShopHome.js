@@ -22,6 +22,7 @@ class ShopHome extends Component {
     this.state = {
       height : 200,
       opacity: new Animated.Value(0),
+      targetOpacity : 0
     }
 
 
@@ -33,23 +34,26 @@ class ShopHome extends Component {
 
   handleScroll(evt){
 
-    const offset = evt.nativeEvent.contentOffset.y;
-    console.log(offset)
-    if(offset < 0 ){
-        return;
+    let offset = evt.nativeEvent.contentOffset.y;
+    offset = offset < 0 ? 0 : offset;
+    let newHeight = offset >= 50 ? 100 : 200 - offset * 2;
+    this.setState({height: newHeight})
+
+    let newOpacity = offset >= 45 ? 1 : 0;
+
+    if(newOpacity != this.state.targetOpacity){
+      this.setState({targetOpacity: newOpacity})
+      Animated.timing(this.state.opacity, {   // and twirl
+        toValue: newOpacity,
+        easing:Easing.linear,
+        duration: 300,
+      }).start();
+
+
     }
 
-    let newHeight = offset >= 100 ? 100 : 200 - offset;
-    let newOpacity = offset >= 90 ? 1 : 0;
-
-    Animated.timing(this.state.opacity, {   // and twirl
-      toValue: newOpacity,
-      //easing:Easing.linear,
-      //duration:50
-    }).start();
-
     //todo: whe should compensate height vs scroll
-    this.setState({height:newHeight})
+
 
   }
 
@@ -164,7 +168,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   shopTitleText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'normal',
     color: '#fff',
   },
@@ -183,7 +187,7 @@ const styles = StyleSheet.create({
   },
   logoSmall: {
     position: 'absolute',
-    left: 4,
+    left: 8,
     top: 4,
     height: 32,
     width: 32,
@@ -197,8 +201,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     //justifyContent: 'left',
     //alignItems: 'left',
-    padding: 20,
+    padding: 24,
     //backgroundColor: '#ccc'
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#111',
+    borderTopWidth: 0.5,
+    borderTopColor: '#222',
   },
   technologyImage: {
     resizeMode: 'contain',
@@ -206,7 +214,8 @@ const styles = StyleSheet.create({
     height: 100
   },
   technologyInfoContainer: {
-    flex: 1
+    flex: 1,
+
   },
   technologyTitle: {
     fontSize: 18,

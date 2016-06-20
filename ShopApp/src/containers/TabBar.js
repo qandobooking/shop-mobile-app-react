@@ -101,10 +101,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     borderWidth: 1,
-    borderTopWidth: 0,
+    borderTopWidth: 0.5,
+    borderTopColor: '#444',
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    borderBottomColor: '#222',
+    borderBottomColor: '#000',
   },
 });
 
