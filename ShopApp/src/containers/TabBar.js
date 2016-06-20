@@ -21,7 +21,7 @@ class TabBar extends Component {
     const isTabActive = this.props.activeTab === page;
     const { activeTextColor, inactiveTextColor, textStyle, } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
-    const fontWeight = isTabActive ? 'bold' : 'normal';
+    const fontWeight = isTabActive ? 'normal' : 'normal';
     return (
       <View style={[styles.tab, this.props.tabStyle]} key={page}>
         {

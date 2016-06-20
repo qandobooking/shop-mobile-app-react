@@ -10,6 +10,7 @@ import {
   ListView,
   ActivityIndicatorIOS,
   Animated,
+  Easing,
 } from 'react-native';
 
 import Spinner from '../components/Spinner'
@@ -19,8 +20,11 @@ class ShopHome extends Component {
   constructor(props){
     super(props);
     this.state = {
-      height : 200
+      height : 200,
+      opacity: new Animated.Value(0),
     }
+
+
   }
   componentWillMount() {
     this.props.loadShop();
@@ -28,8 +32,21 @@ class ShopHome extends Component {
 
 
   handleScroll(evt){
+    console.info(evt)
     const offset = evt.nativeEvent.contentOffset.y;
-    let newHeight = offset >= 150 ? 50 : 200 - offset;
+    if(offset < 0){
+        return;
+    }
+
+    let newHeight = offset >= 150 ? 0 : 200 - offset;
+
+    let newOpacity = offset >= 150 ? 1 : 0;
+
+    Animated.timing(this.state.opacity, {   // and twirl
+      toValue: newOpacity, duration:100, easing:Easing.linear
+    }).start();
+
+    //todo: whe should compensate height vs scroll
     this.setState({height:newHeight})
 
   }
@@ -48,14 +65,21 @@ class ShopHome extends Component {
     const { logoUrl, technologies } = shop.customData;
 
     return (
+      <View style={styles.container}>
+      <View style={styles.shopTitleContainer}>
+          <Text style={styles.shopTitleText}>{shop.name}</Text>
+            <Animated.Image
+              style={[styles.logoSmall, {opacity:this.state.opacity}]}
+              source={{uri: logoUrl}}
+            />
+      </View>
       <ScrollView
-        style={styles.container}
-        scrollEventThrottle={20}
+        ref="scrollView"
+        style={styles.scrollview}
+        scrollEventThrottle={40}
         onScroll={(evt)=>{this.handleScroll(evt)}}>
       <View style={styles.container}>
-        <View style={styles.shopTitleContainer}>
-          <Text style={styles.shopTitleText}>{shop.name}</Text>
-        </View>
+
         <View style={[styles.logoContainer, { height:this.state.height }]} ref="logoContainer">
           <Image
             style={styles.logo}
@@ -65,6 +89,7 @@ class ShopHome extends Component {
         {this.renderTechnologiesList()}
       </View>
       </ScrollView>
+      </View>
     );
   }
 
@@ -128,7 +153,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#222'
+    backgroundColor: '#000'
   },
   shopTitleContainer: {
     justifyContent: 'center',
@@ -137,7 +162,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   shopTitleText: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: 'normal',
     color: '#fff',
   },
@@ -145,6 +170,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 200,
+    paddingTop: 5,
+    paddingBottom: 5,
     backgroundColor: '#000',
   },
   logo: {
@@ -152,8 +179,17 @@ const styles = StyleSheet.create({
     width: 150,
     resizeMode: 'contain',
   },
+  logoSmall: {
+    position: 'absolute',
+    left: 4,
+    top: 4,
+    height: 32,
+    width: 32,
+    resizeMode: 'contain',
+  },
   listContainer: {
     flex: 1,
+    backgroundColor: '#fff',
   },
   technologyRow: {
     flexDirection: 'row',
@@ -174,11 +210,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 8,
     textAlign: 'left',
-    color: '#fff',
+    color: '#222',
   },
   technologyDescription: {
     textAlign: 'left',
-    color: '#ddd',
+    color: '#444',
   },
 });
 
