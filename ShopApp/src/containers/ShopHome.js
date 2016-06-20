@@ -32,18 +32,20 @@ class ShopHome extends Component {
 
 
   handleScroll(evt){
-    console.info(evt)
+
     const offset = evt.nativeEvent.contentOffset.y;
-    if(offset < 0){
+    console.log(offset)
+    if(offset < 0 ){
         return;
     }
 
-    let newHeight = offset >= 150 ? 0 : 200 - offset;
-
-    let newOpacity = offset >= 150 ? 1 : 0;
+    let newHeight = offset >= 100 ? 100 : 200 - offset;
+    let newOpacity = offset >= 90 ? 1 : 0;
 
     Animated.timing(this.state.opacity, {   // and twirl
-      toValue: newOpacity, duration:100, easing:Easing.linear
+      toValue: newOpacity,
+      //easing:Easing.linear,
+      //duration:50
     }).start();
 
     //todo: whe should compensate height vs scroll
@@ -189,7 +191,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
   },
   technologyRow: {
     flexDirection: 'row',
@@ -210,11 +212,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 8,
     textAlign: 'left',
-    color: '#222',
+    color: '#fff',
   },
   technologyDescription: {
     textAlign: 'left',
-    color: '#444',
+    color: '#ccc',
   },
 });
 
