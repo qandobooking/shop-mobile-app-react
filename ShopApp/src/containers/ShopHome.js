@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadShop } from '../actions/shop';
+import { loadShopByDomain } from '../actions/shop';
 import {
   StyleSheet,
   Text,
@@ -28,7 +28,7 @@ class ShopHome extends Component {
 
   }
   componentWillMount() {
-    this.props.loadShop();
+    this.props.loadShopByDomain();
   }
 
 
@@ -238,5 +238,5 @@ function mapStateToProps(state, ownProps) {
 }
 
 export default connect(mapStateToProps, {
-  loadShop,
+  loadShopByDomain,
 })(ShopHome);
