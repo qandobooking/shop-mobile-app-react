@@ -8,6 +8,8 @@ import {
   ActivityIndicatorIOS,
 } from 'react-native';
 
+import Spinner from '../components/Spinner'
+
 class ShopHome extends Component {
   componentWillMount() {
     this.props.loadShop();
@@ -17,7 +19,7 @@ class ShopHome extends Component {
     const { shop, isFetching, error } = this.props;
 
     if (isFetching) {
-      return <View style={styles.container}><ActivityIndicatorIOS/></View>;
+      return <View style={styles.container}><Spinner/></View>;
     }
 
     return (

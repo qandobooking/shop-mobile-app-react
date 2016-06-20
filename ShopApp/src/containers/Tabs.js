@@ -4,36 +4,40 @@ import { switchTab } from '../actions/tabs';
 import ShopHome from './ShopHome';
 import Services from './services/Services';
 import UserProfile from './UserProfile';
+import Contacts from './Contacts';
+import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
 import {
-  TabBarIOS
+  Text
 } from 'react-native';
 
+import TabBar from './TabBar';
+
 class Tabs extends Component {
+
+  constructor(props){
+    super(props);
+  }
   render() {
     const { selectedTab, switchTab, navigator } = this.props;
 
     return (
-      <TabBarIOS>
-        <TabBarIOS.Item
-          title="Shop"
-          selected={selectedTab === 'shopTab'}
-          onPress={() => switchTab('shopTab')}>
-          <ShopHome />
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="Servizi"
-          selected={selectedTab === 'servicesTab'}
-          onPress={() => switchTab('servicesTab')}>
-          <Services navigator={navigator} />
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="Profilo"
-          selected={selectedTab === 'userTab'}
-          onPress={() => switchTab('userTab')}>
-          <UserProfile />
-        </TabBarIOS.Item>
-      </TabBarIOS>
-    );
+      <ScrollableTabView
+        style={{marginTop: 20, }}
+        tabBarPosition='bottom'
+        locked={true}
+        page={this.props.selectedTab}
+        renderTabBar={() => <TabBar />}
+        >
+        <ShopHome tabLabel='Home' navigator={navigator} />
+        <Services tabLabel='Servizi' navigator={navigator} />
+        <UserProfile tabLabel='Profilo' navigator={navigator} />
+        <Contacts tabLabel='Contatti' navigator={navigator} />
+
+    </ScrollableTabView>
+    )
+
+
+
   }
 }
 

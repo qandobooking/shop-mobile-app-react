@@ -3,7 +3,7 @@ import {
 } from '../constants/ActionTypes';
 
 const initialState = {
-  selected: 'shopTab',
+  selected: 0,
 };
 
 export default function(state = initialState, action) {
