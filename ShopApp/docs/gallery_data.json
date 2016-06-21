@@ -1,0 +1,27 @@
+{
+  "items" : [
+    {
+      "title" : "First image",
+      "caption" : "Some longer description for first image",
+      "imageUrl" : "https://source.unsplash.com/category/nature/600x800"
+    },
+    {
+      "title" : "Second image",
+      "caption" : "Some longer description for second image",
+      "imageUrl" : "https://source.unsplash.com/category/nature/600x800"
+    },
+
+    {
+      "title" : "Third image",
+      "caption" : "Some longer description for third image",
+      "imageUrl" : "https://source.unsplash.com/category/nature/600x800"
+    },
+
+    {
+      "title" : "Last image",
+      "caption" : "Some longer description for last image",
+      "imageUrl" : "https://source.unsplash.com/category/nature/600x800"
+    }
+  ]
+
+}

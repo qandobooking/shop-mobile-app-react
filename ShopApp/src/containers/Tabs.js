@@ -14,6 +14,8 @@ import {
 
 import TabBar from './TabBar';
 
+const icons = ['home', 'camera-retro', 'cubes', 'phone'];
+
 class Tabs extends Component {
 
   constructor(props){
@@ -28,13 +30,13 @@ class Tabs extends Component {
         tabBarPosition='bottom'
         locked={true}
         page={this.props.selectedTab}
-        renderTabBar={() => <TabBar />}
+        renderTabBar={() => <TabBar icons={icons} />}
         >
         <ShopHome tabLabel='Home' navigator={navigator} />
         <Gallery tabLabel='Gallery' navigator={navigator} />
-        <Services tabLabel='Servizi' navigator={navigator} />
+        {/*<Services tabLabel='Servizi' navigator={navigator} />*/}
         <Products tabLabel='Prodotti' navigator={navigator} />
-        <UserProfile tabLabel='Profilo' navigator={navigator} />
+        {/*<UserProfile tabLabel='Profilo' navigator={navigator} />*/}
         <Contacts tabLabel='Contatti' navigator={navigator} />
 
     </ScrollableTabView>

@@ -6,47 +6,38 @@ import {
   Text,
   View,
   Animated,
-  TouchableHighlight
+  TouchableOpacity
 } from 'react-native';
 import {switchTab} from '../actions/tabs';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class TabBar extends Component {
 
   onPress(page){
-    console.info("pressed", page);
     this.props.switchTab(page);
   }
 
   renderTabOption(name, page) {
     const isTabActive = this.props.activeTab === page;
+    console.log(page)
     const { activeTextColor, inactiveTextColor, textStyle, } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? 'normal' : 'normal';
     return (
-      <View style={[styles.tab, this.props.tabStyle]} key={page}>
-        {
-          /*
-        <Icon.Button key={'tab_'+page}  name="home" backgroundColor="black" colo onPress={()=>this.onPress(page)}>
-          {name}
-        </Icon.Button>
-        {
-        */
-        }
 
-        <TouchableHighlight onPress={()=>this.onPress(page)}>
-
-        <Text style={[{color: textColor, fontWeight, }, textStyle, ]}>
-        {name}
-        </Text>
-        </TouchableHighlight>
-
-
-    </View>);
+        <TouchableOpacity style={[styles.tab, this.props.tabStyle]} key={page} onPress={()=>this.onPress(page)}>
+          <Icon name={this.props.icons[page]} size={18} color={textColor}></Icon>
+          <Text style={[{color: textColor, fontWeight, }, textStyle, styles.tabText ]}>
+            {name}
+          </Text>
+        </TouchableOpacity>
+   )
   }
 
   render() {
     const containerWidth = this.props.containerWidth;
     const numberOfTabs = this.props.tabs.length;
+    console.log(this.props.tabs)
     const tabUnderlineStyle = {
       position: 'absolute',
       width: containerWidth / numberOfTabs,
@@ -107,6 +98,12 @@ const styles = StyleSheet.create({
     borderRightWidth: 0,
     borderBottomColor: '#000',
   },
+  tabText : {
+    fontSize : 12,
+    paddingTop: 1
+
+  }
+
 });
 
 
