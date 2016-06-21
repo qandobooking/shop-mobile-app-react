@@ -6,9 +6,7 @@ import App from './containers/App'
 
 const store = configureStore({
   // Generale stuff app configuration...
-  app: {
-    shopDomain: 'inmagik' // Customer App Shop Domain Name
-  }
+  app: require('./data/app')
 });
 
 bootstrapStore(store);

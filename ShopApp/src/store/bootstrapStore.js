@@ -11,8 +11,15 @@ function loginUserWithAsyncStorageToken(store) {
 }
 
 function fillCachedShopData(store) {
+  //AsyncStorage.clear();
   AsyncStorage.getItem('shopData', (err, shopData) => {
-    if (!err && shopData) {
+    if (!shopData) {
+      // No shop use the bunlded shop data instead!
+      console.info('Use bundled shop data.', require('../data/shop.json'));
+      store.dispatch(setShopData(require('../data/shop.json')));
+    } else {
+      // No shop use the bunlded shop data instead!
+      console.info('Use cached shop data.');
       store.dispatch(setShopData(JSON.parse(shopData)));
     }
   });

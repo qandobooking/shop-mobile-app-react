@@ -68,7 +68,7 @@ class ShopHome extends Component {
       return null;
     }
 
-    const { logoUrl, technologies } = shop.customData;
+    const { logoUrl, technologies } = shop.homeData;
 
     return (
       <View style={styles.container}>
@@ -100,7 +100,7 @@ class ShopHome extends Component {
   }
 
   renderTechnologiesList() {
-    const { technologies } = this.props.shop.customData;
+    const { technologies } = this.props.shop.homeData;
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     const dataSource = ds.cloneWithRows(technologies);
