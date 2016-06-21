@@ -25,7 +25,7 @@ function fetchServices(shopId) {
 
 export function loadServices() {
   return (dispatch, getState) => {
-    dispatch(fetchServices(getState().app.shopId));
+    dispatch(fetchServices(getState().shop.data.id));
   };
 };
 
@@ -47,7 +47,7 @@ export function loadService(serviceId, forceReload = false) {
   return (dispatch, getState) => {
     const service = getState().entities.services[serviceId];
     if (!service || forceReload) {
-      dispatch(fetchService(getState().app.shopId, serviceId));
+      dispatch(fetchService(getState().shop.data.id, serviceId));
     }
   };
 };
