@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
 import {
   StyleSheet,
@@ -26,7 +25,7 @@ class TabBar extends Component {
     return (
 
         <TouchableOpacity style={[styles.tab, this.props.tabStyle]} key={page} onPress={()=>this.onPress(page)}>
-          <Icon name={this.props.icons[page]} size={18} color={textColor}></Icon>
+          <Icon style={{marginTop:8}} name={this.props.icons[page]} size={18} color={textColor}></Icon>
           <Text style={[{color: textColor, fontWeight, }, textStyle, styles.tabText ]}>
             {name}
           </Text>

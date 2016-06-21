@@ -10,17 +10,30 @@ import {
   ActivityIndicatorIOS,
   Animated,
   Easing,
+  Dimensions,
+  TouchableHighlight
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 import Spinner from '../components/Spinner'
-import { appTheme } from '../styles/themes'
+import { appTheme, rowStyle } from '../styles/themes'
+
+
+
+const currentDimensions = Dimensions.get('window');
+const winHeight = currentDimensions.height;
+const headerHeight = 48;
+const tabsHeight = 48.5;
+
+const contentHeight = winHeight-headerHeight-tabsHeight
 
 class ShopHome extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      height : 200,
+      height : contentHeight,
       opacity: new Animated.Value(0),
       targetOpacity : 0
     }
@@ -30,10 +43,13 @@ class ShopHome extends Component {
 
     let offset = evt.nativeEvent.contentOffset.y;
     offset = offset < 0 ? 0 : offset;
-    let newHeight = offset >= 50 ? 100 : 200 - offset * 2;
+    let newHeight = offset >= contentHeight / 3
+        ? contentHeight /  3
+        : contentHeight - offset * 2;
+
     this.setState({height: newHeight})
 
-    let newOpacity = offset >= 45 ? 1 : 0;
+    let newOpacity = offset >= contentHeight / 6 ? 1 : 0;
 
     if(newOpacity != this.state.targetOpacity){
       this.setState({targetOpacity: newOpacity})
@@ -42,7 +58,6 @@ class ShopHome extends Component {
         easing:Easing.linear,
         duration: 300,
       }).start();
-
 
     }
 
@@ -66,26 +81,38 @@ class ShopHome extends Component {
 
     return (
       <View style={styles.container}>
+
       <View style={styles.shopTitleContainer}>
-          <Text style={styles.shopTitleText}>{shop.name}</Text>
+            <Animated.Text style={[styles.shopTitleText, {opacity:this.state.opacity}]}>
+              {shop.name.toUpperCase()}
+            </Animated.Text>
             <Animated.Image
               style={[styles.logoSmall, {opacity:this.state.opacity}]}
               source={{uri: logoUrl}}
             />
       </View>
+
       <ScrollView
         ref="scrollView"
         style={styles.scrollview}
         scrollEventThrottle={40}
         onScroll={(evt)=>{this.handleScroll(evt)}}>
+
       <View style={styles.container}>
 
         <View style={[styles.logoContainer, { height:this.state.height }]} ref="logoContainer">
+          <View style={[styles.innerLogoContainer]}>
           <Image
             style={styles.logo}
             source={{uri: logoUrl}}
           />
+        <Text style={styles.mainTitle}>{shop.name.toUpperCase()}</Text>
+        <TouchableHighlight style={styles.downIcon} onPress={()=> this.scrollABit()}>
+          <Icon  name='angle-double-down' size={32} color='rgba(68,68,68,.75)'></Icon>
+        </TouchableHighlight>
         </View>
+        </View>
+
         {this.renderTechnologiesList()}
       </View>
       </ScrollView>
@@ -142,6 +169,11 @@ class ShopHome extends Component {
       );
     }
   }
+
+  scrollABit(){
+    this.refs.scrollView.scrollTo({y:contentHeight/3})
+  }
+
 }
 
 const styles = StyleSheet.create({
@@ -159,31 +191,53 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#000',
-    padding: 10
+    height: headerHeight,
   },
   shopTitleText: {
-    fontSize: 18,
+    fontSize: 16,
     fontFamily : 'Helvetica-Light',
     //fontWeight: '200',
     color: '#fff',
   },
   logoContainer : {
+    flex : 1,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 200,
+    //height: 200,
     paddingTop: 5,
     paddingBottom: 5,
     backgroundColor: appTheme.backgroundColor,
   },
-  logo: {
+
+  innerLogoContainer : {
+    justifyContent: 'center',
+    alignItems: 'center',
     flex: 1,
+    paddingBottom : winHeight/4,
+    //backgroundColor: 'red',
+  },
+  mainTitle : {
+    //flex: 1,
+    color: 'white',
+    fontSize:32,
+    marginTop:32,
+    fontFamily : 'Helvetica-Light',
+    //backgroundColor: 'yellow',
+  },
+  downIcon : {
+    top:winHeight/4,
+  },
+  logo: {
+    //flex: 1,
     width: 150,
+    height: 150,
     resizeMode: 'contain',
+    //backgroundColor: 'yellow',
   },
   logoSmall: {
     position: 'absolute',
     right: 8,
-    top: 4,
+    top: 8,
     height: 32,
     width: 32,
     resizeMode: 'contain',
@@ -193,15 +247,12 @@ const styles = StyleSheet.create({
     backgroundColor: appTheme.backgroundColor,
   },
   technologyRow: {
+    ...rowStyle,
     flexDirection: 'row',
     //justifyContent: 'left',
     //alignItems: 'left',
     padding: 24,
-    //backgroundColor: '#ccc'
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#111',
-    borderTopWidth: 0.5,
-    borderTopColor: '#222',
+
   },
   technologyImage: {
     resizeMode: 'contain',
@@ -216,11 +267,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 8,
     textAlign: 'left',
-    color: '#fff',
+    color: appTheme.white,
   },
   technologyDescription: {
     textAlign: 'left',
-    color: '#ccc',
+    color: appTheme.lightWhite,
   },
 });
 

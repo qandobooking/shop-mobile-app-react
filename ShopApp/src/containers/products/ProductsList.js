@@ -35,12 +35,13 @@ class ProductsList extends Component {
         dataSource={dataSource}
         enableEmptySections={true}
         renderRow={(rowData, s, idx) => (
-          <View style={styles.row}>
-            <TouchableHighlight style={styles.title} onPress={()=>this.onPressButton(idx)}>
-              <Text>{rowData.title}</Text>
+            <TouchableHighlight style={styles.row} onPress={()=>this.onPressButton(idx)}>
+              <View>
+              <Text style={styles.titleText}>{rowData.title}</Text>
+              <Text style={styles.description}>{rowData.description}</Text>
+              </View>
             </TouchableHighlight>
-            <Text style={styles.description}>{rowData.description}</Text>
-          </View>
+
 
         )}
       >
@@ -61,14 +62,19 @@ var styles = StyleSheet.create({
 
   row: {
     ...rowStyle,
-    padding: 10
+    padding: 16
   },
   title : {
-    flex : 1
+    flex : 1,
+
+  },
+  titleText:{
+    color: appTheme.white,
+    fontSize : 18,
   },
   description : {
     flex:1,
-    backgroundColor: '#F6F6F6'
+    color: appTheme.lightWhite,
   },
   thumb: {
     width: 64,
