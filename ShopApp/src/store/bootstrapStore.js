@@ -18,7 +18,7 @@ function fillCachedShopData(store) {
       console.info('Use bundled shop data.', require('../data/shop.json'));
       store.dispatch(setShopData(require('../data/shop.json')));
     } else {
-      // No shop use the bunlded shop data instead!
+      // We have cached shop data, use cache!
       console.info('Use cached shop data.');
       store.dispatch(setShopData(JSON.parse(shopData)));
     }
