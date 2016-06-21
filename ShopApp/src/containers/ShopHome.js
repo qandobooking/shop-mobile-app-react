@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadShopByDomain } from '../actions/shop';
 import {
   StyleSheet,
   Text,
@@ -24,13 +23,7 @@ class ShopHome extends Component {
       opacity: new Animated.Value(0),
       targetOpacity : 0
     }
-
-
   }
-  componentWillMount() {
-    this.props.loadShopByDomain();
-  }
-
 
   handleScroll(evt){
 
@@ -230,7 +223,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     shop: state.shop.data,
     isFetching: state.shop.isFetching,
@@ -238,6 +231,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps, {
-  loadShopByDomain,
-})(ShopHome);
+export default connect(mapStateToProps)(ShopHome);

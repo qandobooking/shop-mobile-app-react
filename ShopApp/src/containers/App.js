@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { loadShopByDomain } from '../actions/shop';
 import Tabs from "./Tabs";
 import {
   StyleSheet,
   Navigator,
 } from 'react-native';
 
-export default class App extends Component {
+class App extends Component {
 
   constructor(props){
     super(props);
 
     this.renderScene = this.renderScene.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.loadShopByDomain();
   }
 
   render() {
@@ -36,3 +41,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#000',
   }
 });
+
+export default connect(null, {
+  loadShopByDomain
+})(App);

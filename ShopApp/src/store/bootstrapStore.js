@@ -13,14 +13,16 @@ function loginUserWithAsyncStorageToken(store) {
 function fillCachedShopData(store) {
   //AsyncStorage.clear();
   AsyncStorage.getItem('shopData', (err, shopData) => {
-    if (!shopData) {
-      // No shop use the bunlded shop data instead!
-      console.info('Use bundled shop data.', require('../data/shop.json'));
-      store.dispatch(setShopData(require('../data/shop.json')));
-    } else {
-      // We have cached shop data, use cache!
-      console.info('Use cached shop data.');
-      store.dispatch(setShopData(JSON.parse(shopData)));
+    if (!store.getState().shop.data) { // Check if store is alredy filled by API call
+      if (!shopData) {
+        // No shop use the bunlded shop data instead!
+        console.info('Use bundled shop data.', require('../data/shop.json'));
+        store.dispatch(setShopData(require('../data/shop.json')));
+      } else {
+        // We have cached shop data, use cache!
+        console.info('Use cached shop data.');
+        store.dispatch(setShopData(JSON.parse(shopData)));
+      }
     }
   });
 }

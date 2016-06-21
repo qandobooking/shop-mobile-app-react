@@ -8,17 +8,17 @@
         {
           "title" : "Django",
           "description" : "prova2",
-          "imageUrl" : "",
+          "imageUrl" : ""
         },
         {
           "title" : "Angular",
           "description" : "prova2",
-          "imageUrl" : "",
+          "imageUrl" : ""
         },
         {
           "title" : "React",
           "description" : "prova2",
-          "imageUrl" : "",
+          "imageUrl" : ""
         }
       ]
     },
@@ -30,12 +30,12 @@
         {
           "title" : "Ionic",
           "description" : "prova2",
-          "imageUrl" : "",
+          "imageUrl" : ""
         },
         {
           "title" : "React Native",
           "description" : "prova2",
-          "imageUrl" : "",
+          "imageUrl" : ""
         }
 
       ]

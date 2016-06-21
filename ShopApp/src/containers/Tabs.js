@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { switchTab } from '../actions/tabs';
 import ShopHome from './ShopHome';
 import Services from './services/Services';
+import Products from './products/Products';
 import UserProfile from './UserProfile';
 import Contacts from './Contacts';
 import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
@@ -30,6 +31,7 @@ class Tabs extends Component {
         >
         <ShopHome tabLabel='Home' navigator={navigator} />
         <Services tabLabel='Servizi' navigator={navigator} />
+        <Products tabLabel='Prodotti' navigator={navigator} />
         <UserProfile tabLabel='Profilo' navigator={navigator} />
         <Contacts tabLabel='Contatti' navigator={navigator} />
 
