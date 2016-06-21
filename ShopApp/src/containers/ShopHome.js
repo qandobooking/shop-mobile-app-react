@@ -169,7 +169,8 @@ const styles = StyleSheet.create({
   },
   shopTitleText: {
     fontSize: 18,
-    fontWeight: 'normal',
+    fontFamily : 'Helvetica-Light',
+    //fontWeight: '200',
     color: '#fff',
   },
   logoContainer : {
@@ -187,7 +188,7 @@ const styles = StyleSheet.create({
   },
   logoSmall: {
     position: 'absolute',
-    left: 8,
+    right: 8,
     top: 4,
     height: 32,
     width: 32,
