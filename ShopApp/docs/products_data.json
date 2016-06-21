@@ -1,0 +1,48 @@
+{
+  "items"  : [
+    {
+      "title" : "Sviluppo web",
+      "description" : "prova1",
+      "imageUrl" : "",
+      "items" : [
+        {
+          "title" : "Django",
+          "description" : "prova2",
+          "imageUrl" : "",
+        },
+        {
+          "title" : "Angular",
+          "description" : "prova2",
+          "imageUrl" : "",
+        },
+        {
+          "title" : "React",
+          "description" : "prova2",
+          "imageUrl" : "",
+        }
+      ]
+    },
+    {
+      "title" : "Sviluppo app",
+      "description" : "prova2",
+      "imageUrl" : "",
+      "items" : [
+        {
+          "title" : "Ionic",
+          "description" : "prova2",
+          "imageUrl" : "",
+        },
+        {
+          "title" : "React Native",
+          "description" : "prova2",
+          "imageUrl" : "",
+        }
+
+      ]
+    }
+
+
+  ]
+
+
+}
