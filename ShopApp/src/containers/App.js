@@ -5,6 +5,8 @@ import Tabs from "./Tabs";
 import {
   StyleSheet,
   Navigator,
+  View,
+  StatusBar
 } from 'react-native';
 
 class App extends Component {
@@ -21,12 +23,17 @@ class App extends Component {
 
   render() {
     return (
+      <View style={styles.container}>
+      <StatusBar
+        barStyle="light-content"
+     />
       <Navigator
         style={styles.container}
         initialRoute={{}}
         renderScene={this.renderScene}
         configureScene={(route, routeStack) => Navigator.SceneConfigs.FadeAndroid}
       />
+    </View>
     );
   }
 

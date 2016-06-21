@@ -9,32 +9,35 @@ import {
   ActivityIndicatorIOS,
   TouchableHighlight
 } from 'react-native';
+import { get } from 'lodash';
+
+import { appTheme, rowStyle } from '../../styles/themes'
 
 
 class ProductsList extends Component {
 
-  componentWillMount() {
-    this.props.loadServices();
-  }
 
-  onPressButton(serviceId){
-    this.props.servicesNavigator.push({detail:true, serviceId:serviceId, title:'Test' })
+  onPressButton(idx){
+    let newPath = this.props.path ? this.props.path + `.items[${idx}]` : `items[${idx}]`;
+    console.log(newPath, idx)
+    const route = { path: newPath, title:this.props.productData.items[idx].title}
+    this.props.servicesNavigator.push(route);
   }
 
   render() {
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    let dataSource = ds.cloneWithRows(this.props.services)
+    let items = this.props.productData.items || [];
+    let dataSource = ds.cloneWithRows(items)
     const { services, isFetching } = this.props;
     return (
       <View style={styles.container}>
-      { isFetching && <ActivityIndicatorIOS/> }
       <ListView
         dataSource={dataSource}
         enableEmptySections={true}
-        renderRow={(rowData) => (
+        renderRow={(rowData, s, idx) => (
           <View style={styles.row}>
-            <TouchableHighlight style={styles.title} onPress={()=>this.onPressButton(rowData.id)}>
-              <Text>{rowData.name} {rowData.id}</Text>
+            <TouchableHighlight style={styles.title} onPress={()=>this.onPressButton(idx)}>
+              <Text>{rowData.title}</Text>
             </TouchableHighlight>
             <Text style={styles.description}>{rowData.description}</Text>
           </View>
@@ -53,14 +56,12 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000',
-    paddingTop:50,
+    paddingTop:64,
   },
 
   row: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    padding: 10,
-    backgroundColor: '#F6F6F6'
+    ...rowStyle,
+    padding: 10
   },
   title : {
     flex : 1
@@ -79,17 +80,15 @@ var styles = StyleSheet.create({
 });
 
 
-function mapStateToProps(state) {
-  const isFetching = state.services.isFetching;
-  const services = state.services.ids.map(id => state.entities.services[id]);
-
+function mapStateToProps(state, ownProps) {
+  let productData = state.shop.data.productsData;
+  if(ownProps.path){
+    productData = get(productData, ownProps.path, [])
+  }
   return {
-    isFetching,
-    services,
+    productData
   };
 }
 
 
-export default connect(mapStateToProps, {
-  loadServices,
-})(ProductsList);
+export default connect(mapStateToProps)(ProductsList);

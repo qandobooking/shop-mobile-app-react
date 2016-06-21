@@ -66,7 +66,7 @@ export default class Products extends Component {
 
 
 
-    return <ProductsList servicesNavigator={navigator} />;
+    return <ProductsList servicesNavigator={navigator} path={route.path} />;
   }
 }
 
@@ -92,16 +92,17 @@ var styles = StyleSheet.create({
   },
 
   navBar: {
-    backgroundColor: 'white',
+    backgroundColor: '#000',
   },
   navBarText: {
     fontSize: 16,
-    marginVertical: 10,
+    //marginVertical: 10,
+
   },
   navBarTitleText: {
-    color: '#373E4D',
+    color : '#fff',
     fontWeight: '500',
-    marginVertical: 9,
+    //marginVertical: 9,
   },
   navBarLeftButton: {
     paddingLeft: 10,
@@ -142,7 +143,7 @@ var NavigationBarRouteMapper = {
   Title: function(route, navigator, index, navState) {
     return (
       <Text style={[styles.navBarText, styles.navBarTitleText]}>
-        {route.title} [{index}]
+        {route.title}
       </Text>
     );
   },

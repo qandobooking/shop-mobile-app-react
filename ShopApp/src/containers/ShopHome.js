@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import Spinner from '../components/Spinner'
+import { appTheme } from '../styles/themes'
 
 class ShopHome extends Component {
 
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
     height: 200,
     paddingTop: 5,
     paddingBottom: 5,
-    backgroundColor: '#000',
+    backgroundColor: appTheme.backgroundColor,
   },
   logo: {
     flex: 1,
@@ -189,7 +190,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: appTheme.backgroundColor,
   },
   technologyRow: {
     flexDirection: 'row',
