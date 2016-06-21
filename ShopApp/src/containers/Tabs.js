@@ -4,6 +4,7 @@ import { switchTab } from '../actions/tabs';
 import ShopHome from './ShopHome';
 import Services from './services/Services';
 import Products from './products/Products';
+import Gallery from './Gallery';
 import UserProfile from './UserProfile';
 import Contacts from './Contacts';
 import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
@@ -30,6 +31,7 @@ class Tabs extends Component {
         renderTabBar={() => <TabBar />}
         >
         <ShopHome tabLabel='Home' navigator={navigator} />
+        <Gallery tabLabel='Gallery' navigator={navigator} />
         <Services tabLabel='Servizi' navigator={navigator} />
         <Products tabLabel='Prodotti' navigator={navigator} />
         <UserProfile tabLabel='Profilo' navigator={navigator} />
