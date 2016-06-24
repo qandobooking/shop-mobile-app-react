@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply plugin: 'com.google.gms.google-services' // <- Added for https://github.com/evollu/react-native-fcm
 
 import com.android.build.OutputFile
 
@@ -81,7 +82,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.shopapp"
+        applicationId "com.inmagik.inmagik"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
@@ -120,6 +121,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-fcm')
     compile project(':react-native-vector-icons')
     compile project(':react-native-maps')
     compile fileTree(dir: "libs", include: ["*.jar"])

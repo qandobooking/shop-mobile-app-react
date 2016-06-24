@@ -42,6 +42,7 @@ class ShopHome extends Component {
   handleScroll(evt){
 
     let offset = evt.nativeEvent.contentOffset.y;
+
     offset = offset < 0 ? 0 : offset;
     let newHeight = offset >= contentHeight / 3
         ? contentHeight /  3
@@ -61,7 +62,17 @@ class ShopHome extends Component {
 
     }
 
+    evt.preventDefault()
+
     //todo: whe should compensate height vs scroll
+    /*
+    if(newHeight >  contentHeight / 3) {
+      this.refs.scrollView.scrollTo({y:offset*2})
+
+    }
+    */
+
+
 
 
   }
@@ -80,7 +91,7 @@ class ShopHome extends Component {
     const { logoUrl, technologies } = shop.homeData;
 
     return (
-      <View style={styles.container}>
+      <View style={styles.container} >
 
       <View style={styles.shopTitleContainer}>
             <Animated.Text style={[styles.shopTitleText, {opacity:this.state.opacity}]}>
@@ -94,9 +105,10 @@ class ShopHome extends Component {
 
       <ScrollView
         ref="scrollView"
-        style={styles.scrollview}
         scrollEventThrottle={40}
-        onScroll={(evt)=>{this.handleScroll(evt)}}>
+        onScroll={(evt)=>{this.handleScroll(evt)}}
+        style={styles.scrollview}
+        >
 
       <View style={styles.container}>
 
@@ -171,7 +183,7 @@ class ShopHome extends Component {
   }
 
   scrollABit(){
-    this.refs.scrollView.scrollTo({y:contentHeight/3})
+    this.refs.scrollView.scrollTo({y:winHeight})
   }
 
 }
@@ -200,7 +212,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   logoContainer : {
-    flex : 1,
+    //flex : 1,
     alignItems: 'center',
     justifyContent: 'center',
     //height: 200,
@@ -236,7 +248,7 @@ const styles = StyleSheet.create({
   },
   logoSmall: {
     position: 'absolute',
-    right: 8,
+    right: 4,
     top: 8,
     height: 32,
     width: 32,

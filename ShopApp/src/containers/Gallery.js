@@ -6,16 +6,20 @@ import {
   Text,
   View,
   TouchableHighlight,
-  Image
+  Image,
+  Dimensions,
 } from 'react-native';
 
 import { appTheme, rowStyle } from '../styles/themes'
+
+var { height, width } = Dimensions.get('window');
 
 class Gallery extends Component {
 
   render() {
     return (
       <Carousel
+        width={width}
         animate={false}
         indicatorSize={20}
         indicatorSpace={12}
@@ -42,7 +46,7 @@ class Gallery extends Component {
 
 var styles = StyleSheet.create({
   container: {
-    width: 375,
+    width: width,
     flex: 1,
     justifyContent: 'center',
     backgroundColor: 'transparent',
@@ -50,7 +54,7 @@ var styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    resizeMode: 'cover',
+    //resizeMode: 'cover',
     justifyContent: 'flex-end',
     alignItems: 'stretch'
   },

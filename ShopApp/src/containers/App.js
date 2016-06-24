@@ -9,6 +9,8 @@ import {
   StatusBar
 } from 'react-native';
 
+import FCM from 'react-native-fcm';
+
 class App extends Component {
 
   constructor(props){
@@ -19,6 +21,15 @@ class App extends Component {
 
   componentWillMount() {
     this.props.loadShopByDomain();
+
+    FCM.requestPermissions();
+
+    FCM.getFCMToken().then(token => {
+      console.log(token)
+      // store fcm token in your server
+    });
+    
+
   }
 
   render() {

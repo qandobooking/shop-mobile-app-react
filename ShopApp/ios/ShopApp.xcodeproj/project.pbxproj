@@ -22,9 +22,15 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		1AE8468B1D1D4BE400E3F57B /* libPods-ShopAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA7012E0365661144080ABC /* libPods-ShopAppTests.a */; };
+		1AE846CE1D1D4FDF00E3F57B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AE846CD1D1D4FDF00E3F57B /* GoogleService-Info.plist */; };
+		1AE846CF1D1D4FDF00E3F57B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AE846CD1D1D4FDF00E3F57B /* GoogleService-Info.plist */; };
 		2533460F3A4D4FFD8F501AF6 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 631440A21E4B4846ABA345F2 /* FontAwesome.ttf */; };
+		2D99DEA338B7449307CF0285 /* libPods-ShopAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA7012E0365661144080ABC /* libPods-ShopAppTests.a */; };
 		2E02BF6CDD414BA8B4F12B43 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC31009A7E84907B6094DC5 /* EvilIcons.ttf */; };
 		32987E5FC1A74F218261EC19 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6F5E4DA56C94AB7BD946EB6 /* Foundation.ttf */; };
+		57768D3AE82D4B61B24E8BCD /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ADD7DFBF884A4FBBDA4CCF /* libRNFIRMessaging.a */; };
+		6285A1B0DA69BDBB3DE50B86 /* libPods-ShopApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B1EEBE8D7672E99457E71E /* libPods-ShopApp.a */; };
 		67E8E234273347F7918BDB90 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F2D61C7D9F4FF2A4D6EC7B /* libAirMaps.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		89206F264BB34D3592F302AC /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B94070A9AF8B4595A277DF25 /* Entypo.ttf */; };
@@ -98,6 +104,13 @@
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
 		};
+		1A10E3C01D1D44DD00F7B19E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A74E09644DBC4F04BDB3C491 /* RNFIRMessaging.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNFIRMessaging;
+		};
 		1A134A4D1D1893CB006BC5A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0959033FD3B445188E0FB707 /* AirMaps.xcodeproj */;
@@ -149,17 +162,26 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ShopApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ShopApp/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		1AE846CD1D1D4FDF00E3F57B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3043105B08234898A5ED08CB /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		349579EC5A5E4DEFB08BC3B8 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		59584B0368514EB6B07E3C74 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		5F4B81DE3BB046B2909998B3 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		631440A21E4B4846ABA345F2 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		673F385CDF6BF7AE422862BA /* Pods-ShopAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShopAppTests/Pods-ShopAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6784B082320A8B0F49A6F8D6 /* Pods-ShopAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShopAppTests/Pods-ShopAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		6AA7012E0365661144080ABC /* libPods-ShopAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShopAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		72B1EEBE8D7672E99457E71E /* libPods-ShopApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShopApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		80F2D61C7D9F4FF2A4D6EC7B /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		A74E09644DBC4F04BDB3C491 /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFIRMessaging.xcodeproj; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; };
 		ADB30C188A1F4C8E86B531CE /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		B94070A9AF8B4595A277DF25 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		BD89C5170E113665CC8D972B /* Pods-ShopApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShopApp/Pods-ShopApp.release.xcconfig"; sourceTree = "<group>"; };
+		C2ADD7DFBF884A4FBBDA4CCF /* libRNFIRMessaging.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFIRMessaging.a; sourceTree = "<group>"; };
 		DDC31009A7E84907B6094DC5 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		ED2FD7AFB697AB696E24C66C /* Pods-ShopApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShopApp/Pods-ShopApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F6F5E4DA56C94AB7BD946EB6 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		FC1EAE456FC8456E95F94111 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D99DEA338B7449307CF0285 /* libPods-ShopAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +211,9 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				67E8E234273347F7918BDB90 /* libAirMaps.a in Frameworks */,
 				C9FBDF4A7E4849DCAE229664 /* libRNVectorIcons.a in Frameworks */,
+				57768D3AE82D4B61B24E8BCD /* libRNFIRMessaging.a in Frameworks */,
+				1AE8468B1D1D4BE400E3F57B /* libPods-ShopAppTests.a in Frameworks */,
+				6285A1B0DA69BDBB3DE50B86 /* libPods-ShopApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +302,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				1AE846CD1D1D4FDF00E3F57B /* GoogleService-Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = ShopApp;
@@ -285,6 +312,14 @@
 			isa = PBXGroup;
 			children = (
 				146834041AC3E56700842450 /* libReact.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A10E3B21D1D44DC00F7B19E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A10E3C11D1D44DD00F7B19E /* libRNFIRMessaging.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -303,6 +338,17 @@
 				1A54E0A61D197C60000A6120 /* libRNVectorIcons.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5A41F9E12B2664463D297D54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ED2FD7AFB697AB696E24C66C /* Pods-ShopApp.debug.xcconfig */,
+				BD89C5170E113665CC8D972B /* Pods-ShopApp.release.xcconfig */,
+				673F385CDF6BF7AE422862BA /* Pods-ShopAppTests.debug.xcconfig */,
+				6784B082320A8B0F49A6F8D6 /* Pods-ShopAppTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
@@ -328,6 +374,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				0959033FD3B445188E0FB707 /* AirMaps.xcodeproj */,
 				FC1EAE456FC8456E95F94111 /* RNVectorIcons.xcodeproj */,
+				A74E09644DBC4F04BDB3C491 /* RNFIRMessaging.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -348,6 +395,8 @@
 				00E356EF1AD99517003FC87E /* ShopAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				FE6CC56A75DD470EACA544B7 /* Resources */,
+				5A41F9E12B2664463D297D54 /* Pods */,
+				F6B375C7035595936738DCE5 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -360,6 +409,15 @@
 				00E356EE1AD99517003FC87E /* ShopAppTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F6B375C7035595936738DCE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72B1EEBE8D7672E99457E71E /* libPods-ShopApp.a */,
+				6AA7012E0365661144080ABC /* libPods-ShopAppTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FE6CC56A75DD470EACA544B7 /* Resources */ = {
@@ -384,9 +442,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ShopAppTests" */;
 			buildPhases = (
+				F8DACD304C97C75BA01B22E3 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				6C6E7A0777F2489CC5E724B4 /* [CP] Embed Pods Frameworks */,
+				3E5067FC120BD8068C171378 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -402,10 +463,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ShopApp" */;
 			buildPhases = (
+				A1CD40D251D9673DDDAA0CE3 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				FAD8A28A23E396DEFECBB9BF /* [CP] Embed Pods Frameworks */,
+				0EC6CB9FCE1D4451083123FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -428,6 +492,17 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = CWWF4T5XDU;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -486,6 +561,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 1A10E3B21D1D44DC00F7B19E /* Products */;
+					ProjectRef = A74E09644DBC4F04BDB3C491 /* RNFIRMessaging.xcodeproj */;
 				},
 				{
 					ProductGroup = 1A54E0971D197C60000A6120 /* Products */;
@@ -557,6 +636,13 @@
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		1A10E3C11D1D44DD00F7B19E /* libRNFIRMessaging.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFIRMessaging.a;
+			remoteRef = 1A10E3C01D1D44DD00F7B19E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		1A134A4E1D1893CB006BC5A9 /* libAirMaps.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -592,6 +678,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE846CF1D1D4FDF00E3F57B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +694,7 @@
 				32987E5FC1A74F218261EC19 /* Foundation.ttf in Resources */,
 				E2F05B865C8D45F7AB937E9D /* Ionicons.ttf in Resources */,
 				BCB19B97A06247D3896008AC /* MaterialIcons.ttf in Resources */,
+				1AE846CE1D1D4FDF00E3F57B /* GoogleService-Info.plist in Resources */,
 				05899A98538E435EBF36B01F /* Octicons.ttf in Resources */,
 				A442DBCA163940FFA20971F3 /* Zocial.ttf in Resources */,
 			);
@@ -628,6 +716,96 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
+		};
+		0EC6CB9FCE1D4451083123FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShopApp/Pods-ShopApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E5067FC120BD8068C171378 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShopAppTests/Pods-ShopAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C6E7A0777F2489CC5E724B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShopAppTests/Pods-ShopAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1CD40D251D9673DDDAA0CE3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F8DACD304C97C75BA01B22E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FAD8A28A23E396DEFECBB9BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShopApp/Pods-ShopApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -674,8 +852,10 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 673F385CDF6BF7AE422862BA /* Pods-ShopAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -687,6 +867,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShopApp.app/ShopApp";
@@ -695,14 +876,17 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6784B082320A8B0F49A6F8D6 /* Pods-ShopAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ShopAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -713,6 +897,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED2FD7AFB697AB696E24C66C /* Pods-ShopApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEAD_CODE_STRIPPING = NO;
@@ -722,19 +907,23 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/AirMaps/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				INFOPLIST_FILE = ShopApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.inmagik.inmagik;
 				PRODUCT_NAME = ShopApp;
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD89C5170E113665CC8D972B /* Pods-ShopApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				HEADER_SEARCH_PATHS = (
@@ -743,13 +932,16 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/AirMaps/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				INFOPLIST_FILE = ShopApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
+					"$(inherited)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.inmagik.inmagik;
 				PRODUCT_NAME = ShopApp;
 			};
 			name = Release;
@@ -794,6 +986,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/AirMaps/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -836,6 +1029,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/AirMaps/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

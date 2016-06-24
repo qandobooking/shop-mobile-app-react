@@ -7,6 +7,7 @@
     "json": "node ./jsonDownloader.js"
   },
   "dependencies": {
+    "es6-symbol": "^3.1.0",
     "humps": "^1.1.0",
     "lodash": "^4.13.1",
     "moment": "^2.13.0",
@@ -15,6 +16,7 @@
     "react-native": "0.27.2",
     "react-native-calendar": "^0.6.4",
     "react-native-carousel": "^0.8.0",
+    "react-native-fcm": "^1.0.9",
     "react-native-gifted-form": "git+https://github.com/FaridSafi/react-native-gifted-form.git",
     "react-native-maps": "^0.4.2",
     "react-native-parallax-view": "^2.0.5",
