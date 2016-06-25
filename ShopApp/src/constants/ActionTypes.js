@@ -1,4 +1,5 @@
 export const SWITCH_TAB = 'SWITCH_TAB';
+export const TOGGLE_DRAWER = 'TOGGLE_DRAWER';
 
 export const SHOP_REQUEST = 'SHOP_REQUEST';
 export const SHOP_SUCCESS = 'SHOP_SUCCESS';

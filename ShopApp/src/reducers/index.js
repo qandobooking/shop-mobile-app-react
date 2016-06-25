@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import app from './app';
+import drawer from './drawer';
 import tabs from './tabs';
 import entities from './entities';
 import shop from './shop';
@@ -11,6 +12,7 @@ import userData from './userData';
 const rootReducer = combineReducers({
   app,
   auth,
+  drawer,
   tabs,
   entities,
   shop,

@@ -16,8 +16,9 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Spinner from '../components/Spinner'
-import { appTheme, rowStyle } from '../styles/themes'
+import Spinner from '../components/Spinner';
+import { appTheme, rowStyle } from '../styles/themes';
+import { toggleDrawer } from '../actions/drawer';
 
 
 
@@ -94,6 +95,9 @@ class ShopHome extends Component {
       <View style={styles.container} >
 
       <View style={styles.shopTitleContainer}>
+            <TouchableHighlight style={styles.menuIcon} onPress={()=>{ console.log("22"); return this.props.toggleDrawer()}}>
+              <Icon name="bars" color="#fff" size={16}></Icon>
+            </TouchableHighlight>
             <Animated.Text style={[styles.shopTitleText, {opacity:this.state.opacity}]}>
               {shop.name.toUpperCase()}
             </Animated.Text>
@@ -254,6 +258,12 @@ const styles = StyleSheet.create({
     width: 32,
     resizeMode: 'contain',
   },
+
+  menuIcon : {
+    position: 'absolute',
+    left: 8,
+    top: 8,
+  },
   listContainer: {
     flex: 1,
     backgroundColor: appTheme.backgroundColor,
@@ -292,7 +302,10 @@ function mapStateToProps(state) {
     shop: state.shop.data,
     isFetching: state.shop.isFetching,
     error: state.shop.error,
+    drawerOpen : state.drawer.open,
   };
 }
 
-export default connect(mapStateToProps)(ShopHome);
+export default connect(mapStateToProps, {
+  toggleDrawer
+})(ShopHome);

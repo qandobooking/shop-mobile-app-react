@@ -46,10 +46,9 @@ public class MainActivity extends ReactActivity {
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new FIRMessagingPackage(),
+            new FIRMessagingPackage(getIntent()),
             new VectorIconsPackage(),
-            new AirPackage(),
-            new FIRMessagingPackage(getIntent())                
+            new AirPackage()
         );
     }
 }

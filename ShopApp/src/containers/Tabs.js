@@ -20,6 +20,7 @@ class Tabs extends Component {
 
   constructor(props){
     super(props);
+    console.log(1, props)
   }
   render() {
     const { selectedTab, switchTab, navigator } = this.props;

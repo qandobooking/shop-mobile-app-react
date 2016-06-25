@@ -16,6 +16,7 @@
     "react-native": "0.27.2",
     "react-native-calendar": "^0.6.4",
     "react-native-carousel": "^0.8.0",
+    "react-native-drawer": "^2.2.4",
     "react-native-fcm": "^1.0.9",
     "react-native-gifted-form": "git+https://github.com/FaridSafi/react-native-gifted-form.git",
     "react-native-maps": "^0.4.2",

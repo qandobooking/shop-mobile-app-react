@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadShopByDomain } from '../actions/shop';
-import Tabs from "./Tabs";
+import SideDrawer from "./SideDrawer";
 import {
   StyleSheet,
-  Navigator,
   View,
   StatusBar
 } from 'react-native';
@@ -12,12 +11,6 @@ import {
 import FCM from 'react-native-fcm';
 
 class App extends Component {
-
-  constructor(props){
-    super(props);
-
-    this.renderScene = this.renderScene.bind(this);
-  }
 
   componentWillMount() {
     //dynamic contents
@@ -43,6 +36,7 @@ class App extends Component {
 
   }
 
+
   componentWillUnmount() {
     // prevent leak
     this.refreshUnsubscribe();
@@ -52,22 +46,14 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <StatusBar
-        barStyle="light-content"
-     />
-      <Navigator
-        style={styles.container}
-        initialRoute={{}}
-        renderScene={this.renderScene}
-        configureScene={(route, routeStack) => Navigator.SceneConfigs.FadeAndroid}
-      />
+        <StatusBar
+          barStyle="light-content"
+        />
+      <SideDrawer/>
     </View>
     );
   }
 
-  renderScene (route, navigator) {
-    return <Tabs navigator={navigator} />;
-  }
 }
 
 var styles = StyleSheet.create({

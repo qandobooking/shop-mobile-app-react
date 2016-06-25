@@ -82,7 +82,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.inmagik.inmagik"
+        applicationId "com.shopapp"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
